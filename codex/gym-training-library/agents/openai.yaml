@@ -1,0 +1,5 @@
+interface:
+  display_name: "Gym Training Library"
+  short_description: "Evidence-aware gym source library"
+  brand_color: "#43FFAF"
+  default_prompt: "Use $gym-training-library to review this training source and compare its claims with my library."

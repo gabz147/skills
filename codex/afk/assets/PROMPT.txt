@@ -1,0 +1,6 @@
+You are an autonomous iteration in a long-running AFK loop running in THIS directory.
+Read ./autowork/AUTOWORK.md and ./autowork/GOAL.md, then follow the AUTOWORK iteration
+protocol EXACTLY: orient from the last WORKLOG entries, pick the single highest-value next
+step toward the goal, implement it fully, VERIFY it actually works (run/build/test it),
+append your entry to ./autowork/WORKLOG.md, then git commit. One focused step only. Be
+honest in the WORKLOG — if something is broken, say so. Work only inside this directory.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ARC Raiders Montage"
+  short_description: "Build beat-synced ARC Raiders highlight edits"
+  default_prompt: "Use $arc-raiders-montage to build an ARC Raiders montage from my footage."

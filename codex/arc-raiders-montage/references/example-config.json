@@ -1,0 +1,22 @@
+{
+  "footage_path": "C:/Videos/Arc Raiders",
+  "music_path": "C:/Music/song.mp3",
+  "target_duration": "45-75s",
+  "output_path": null,
+  "output_name": "arc_raiders_shield_to_knock",
+  "montage_style": "aggressive",
+  "highlight_rules": ["complete shield-pop-to-knock sequences", "raider knock flare"],
+  "event_priority": ["knock", "shield_break", "shield_hit"],
+  "detector_profile": "accurate",
+  "preferred_weapons": ["APHELION", "EQUALIZER"],
+  "preferred_weapon_mode": "boost",
+  "minimum_event_tier": "B",
+  "hud_analysis_fps": 8,
+  "fine_analysis_fps": 30,
+  "resolution": "1920x1080",
+  "frame_rate": 60,
+  "game_audio_level": 0.35,
+  "music_level": 1.0,
+  "render_enabled": false,
+  "review_required": true
+}

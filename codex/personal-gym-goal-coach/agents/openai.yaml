@@ -1,0 +1,5 @@
+interface:
+  display_name: "Personal Gym Goal Coach"
+  short_description: "Vault-backed training and nutrition coach"
+  brand_color: "#43FFAF"
+  default_prompt: "Use $personal-gym-goal-coach to guide my next fitness decision using my GYM vault."
