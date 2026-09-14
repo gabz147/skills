@@ -1,5 +1,7 @@
 # Skills and CLI setup kit
 
+![Skills / CLI Kit for macOS and Windows: two terminals connected through reusable tools.](docs/graphics/cover.png)
+
 Private, versioned setup for **macOS and Windows**: both skill libraries, GSD,
 boot rules, shared vault workflow, hooks, status line, plugins and MCP runtimes.
 
@@ -29,5 +31,15 @@ Background capture scheduling remains optional and Windows-only; the shared
 controller and live checkpoints work on both systems. Native plugin trust and
 client logins are completed on each machine.
 
+## Explore the toolkit
+
+![Six skill areas: code, design, automate, research, create and remember.](docs/graphics/skills-map.png)
+
+Browse the [Claude library](claude), [Codex library](codex), and
+[shared Brain workflow](kit/agent-brain). App requirements and platform limits
+are listed in [SETUP.md](SETUP.md) and [PORTABILITY.md](PORTABILITY.md).
+
 Validation: `python -m unittest -v test_setup`; `python check_runtime.py` checks an
 installed full kit. GitHub Actions runs Windows and macOS setup checks.
+
+[Graphics and generation prompts](docs/graphics/README.md).

@@ -17,6 +17,8 @@ model call. Log into each client separately when starting it.
 
 ## Install
 
+![Setup flow on macOS and Windows: clone the repository, check prerequisites, install the kit, then connect the applications.](docs/graphics/setup-flow.png)
+
 Clone while authenticated to the private repository, then preview:
 
 ```sh
