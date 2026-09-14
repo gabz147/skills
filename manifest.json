@@ -2538,7 +2538,7 @@
     "kit/agent-brain/automation/README.md": "33a58279b70c6eae6bc866cb2bec1e938934f2f570080c344a98be9b3f616ce7",
     "kit/agent-brain/automation/run-hidden.vbs": "b6ca12e65da17ed5643d411b6ae5ab0da4c7f043f65584cebf3e59358b86e499",
     "kit/agent-brain/automation/tests/test_install.py": "9ba3598d6f3e53d53124bdd7b4e7e766e3890330f23d8672374dec160ad585f3",
-    "kit/agent-brain/automation/tests/test_portable.py": "3b94ab3193572964430001fc0e6fffe712205c39d6e0c825a091c082430030a2",
+    "kit/agent-brain/automation/tests/test_portable.py": "cd0274e4c38473c6a01f4f75cf6271ba43f51b6b6dcf48394bb4596fc7d8f140",
     "kit/agent-brain/automation/tests/test_release.py": "4f928763fb1e6f3cc98eb945719b767f0eed7a5318ac941b8f692f3f7898c652",
     "kit/agent-brain/automation/tests/test_vault.py": "55d7c4ea136f455289c8295bf480c1fb831600d8491de8114cbddfe5ef85e29b",
     "kit/agent-brain/automation/user-busy.ps1": "4856db9933f6dbb4dcc199b0c6e1a64f9fff85a51b2e66ff1bceed07c48a0e6c",
@@ -7990,7 +7990,7 @@
     "kit/runtime/context-mode-launcher.py": "3514f7535b650472baa9f5d66cf2b1c745c7cfc12f1d37ea878fb5e487357b15",
     "kit/runtime/hyperframes-runtime/package-lock.json": "e4886d65c695b9303ee77f5491dc8cb9dbf8a704100364720d22147262a34516",
     "kit/runtime/hyperframes-runtime/package.json": "3ce0c3c73a3f45aa34f08011442697ce9a5be36e888c676e0edf374bb3d8dd9c",
-    "kit/SOURCES.md": "4f3c5354477a3b0be4fc19defd768b7586cbf15513d61dca2ed407c7bebecdf6",
+    "kit/SOURCES.md": "f2f2c2617b48fb77f0bd07584ec820a9d2b41cb275dd07dc8c353f074ac1508f",
     "kit/statusline.py": "4d46b6b12e269ddc71a65cd7c6f739ce70d3dd994c0b377130ec7f15ce18fecd",
     "kit/versions.json": "bdb0a3c6fe086310db682208c74ac38515875bd106b7c4dc8262f81f415cfe19"
   }

@@ -150,7 +150,8 @@ def plan(home, vault, client='all', skills_only=False, replace=False, blender=No
     settings['statusLine'] = {'type': 'command', 'command': shell_command([sys.executable, str(home / '.claude/statusline.py')])}
     settings.setdefault('env', {}).update(BRAIN_VAULT_ROOT=str(vault),
                                         BRAIN_AUTOMATION_DIR=str(home / '.claude/vault-automation'),
-                                        BRAIN_PYTHON=sys.executable)
+                                        BRAIN_PYTHON=sys.executable,
+                                        HYPERFRAMES_NO_TELEMETRY='1', HYPERFRAMES_NO_UPDATE_CHECK='1')
     hooks = settings.setdefault('hooks', {})
     for event, extra in [('Stop', []), ('Notification', ['--waiting'])]:
         command = shell_command([sys.executable, str(home / '.claude/hooks/notify.py')] + extra)
@@ -250,11 +251,16 @@ def executable(name):
     if not found:
         raise ValueError(f'{name} is missing from PATH')
     if Path(found).suffix.lower() == '.cmd' and name in {'codex', 'claude'}:
-        entry = '@openai/codex/bin/codex.js' if name == 'codex' else '@anthropic-ai/claude-code/cli.js'
-        script = Path(found).parent / 'node_modules' / entry
+        package = Path(found).parent / 'node_modules' / ('@openai/codex' if name == 'codex' else '@anthropic-ai/claude-code')
+        entry = read_json(package / 'package.json').get('bin', {})
+        entry = entry.get(name) if isinstance(entry, dict) else entry
+        if not isinstance(entry, str):
+            raise ValueError(f'Missing {name} package executable declaration')
+        script = package / entry
+        contained(script, package)
         if not script.is_file():
             raise ValueError(f'Unsupported {name} shim: {found}; install the official CLI')
-        return [shutil.which('node'), str(script)]
+        return [shutil.which('node'), str(script)] if script.suffix in {'.js', '.mjs', '.cjs'} else [str(script)]
     return [found]
 
 
@@ -350,7 +356,7 @@ def environment(home):
     env = os.environ.copy()
     env.update(HOME=str(home), USERPROFILE=str(home), CODEX_HOME=str(home / '.codex'),
                CLAUDE_CONFIG_DIR=str(home / '.claude'), PYTHONIOENCODING='utf-8',
-               HYPERFRAMES_TELEMETRY_DISABLED='1', HYPERFRAMES_NO_UPDATE_CHECK='1')
+               HYPERFRAMES_NO_TELEMETRY='1', HYPERFRAMES_NO_UPDATE_CHECK='1')
     # Native plugin administration must never inherit an enclosing Claude session.
     env.pop('CLAUDECODE', None)
     configured = read_json(home / '.claude/settings.json').get('env', {})

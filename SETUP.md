@@ -85,6 +85,8 @@ lockfiles. Install scripts are disabled during `npm ci`; the required SQLite
 native build is then run explicitly and tested. If a prebuilt SQLite binary is
 unavailable, install the platform's native compiler tools and retry the failed
 installation. No Windows `node_modules` or virtual environments are copied to Mac.
+Both clients receive `HYPERFRAMES_NO_TELEMETRY=1` and
+`HYPERFRAMES_NO_UPDATE_CHECK=1` for their tool subprocesses.
 
 ECC's Chrome DevTools MCP entry pins `chrome-devtools-mcp@1.9.0`; npm resolves its
 dependencies when that optional server first starts. Chrome must be installed

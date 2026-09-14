@@ -31,6 +31,8 @@ Intentional packaging changes:
 - Preserve packaged bytes through Git using a final `-text -eol` attribute override;
   normalize shell/polyglot line endings and executable permissions when installing.
 - Extend the custom status line with GSD's temporary context-metrics bridge.
+- Canonicalize the vault test fixture root so Windows short names compare
+  correctly with the controller's resolved paths.
 - Provide native macOS/Windows notification dispatch; mark pywin32 Windows-only
   in the optional Blender dependency lock.
 

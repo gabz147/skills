@@ -99,6 +99,12 @@ class SetupIntegration(unittest.TestCase):
             setup.restore(backup / 'manifest.json', home, home / 'Documents/Brain', apply=True)
             self.assertEqual(existing.read_bytes(), b'original')
             self.assertFalse(created.exists())
+            wrapper = (['powershell.exe', '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', str(setup.ROOT / 'install.ps1'),
+                        '-SkillsOnly', '-TargetHome', str(home)] if os.name == 'nt' else
+                       [str(setup.ROOT / 'install.sh'), '--skills-only', '--home', str(home)])
+            proc = subprocess.run(wrapper, capture_output=True, text=True, encoding='utf-8')
+            self.assertEqual(proc.returncode, 0, proc.stdout + proc.stderr)
+            self.assertIn('Preview only', proc.stdout)
 
 
 if __name__ == '__main__':
