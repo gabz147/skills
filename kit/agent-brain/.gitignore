@@ -1,0 +1,43 @@
+# Automation runtime state — never commit these
+automation/queue.jsonl
+automation/queue.batch.jsonl
+automation/queue.batch.jsonl.tmp
+automation/processed.jsonl
+automation/failed.jsonl
+automation/stop-state.json
+automation/automation-state.json
+automation/automation-state.json.tmp
+automation/deferral-*.json
+automation/last-audit-date.txt
+automation/*.log
+automation/.drain.lock
+automation/state-v2/
+automation/spool/
+automation/queue.incoming.*.jsonl
+automation/*-v2.jsonl
+automation/hook-errors.jsonl
+automation/runtime-contract.json
+automation/settings.candidate.json
+automation/*.tmp
+automation/*.lock
+
+# Never export credentials or private captures/snapshots
+.env
+.env.*
+*.pem
+*.key
+auth.json
+credentials.json
+
+# Python
+__pycache__/
+*.pyc
+
+# Obsidian workspace/app state (if you ever commit a real vault)
+.obsidian/workspace*
+.obsidian/cache
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini

@@ -1,0 +1,30 @@
+name: Windows and macOS setup
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  install:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: python -m unittest -v test_setup
+      - name: Public vault workflow regression suite
+        run: python -m pip install PyMuPDF==1.28.2
+      - name: Run vault tests
+        run: python -m unittest discover -s kit/agent-brain/automation/tests -v
+      - name: Install native CLIs for isolated runtime acceptance
+        run: npm install --global @openai/codex@0.154.0 @anthropic-ai/claude-code@2.1.270
+      - name: Full setup and runtime smoke tests in a disposable home
+        run: python -c "import os,pathlib,subprocess,sys; subprocess.run([sys.executable,'setup.py','--home',str(pathlib.Path(os.environ['RUNNER_TEMP'])/'cli-home'),'--apply'],check=True)"

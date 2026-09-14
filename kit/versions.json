@@ -1,0 +1,16 @@
+{
+  "agent-brain": "ae54ef980162bf591bce12bae688154e34159cd5",
+  "cli-statusline": "07b800404033ddcb3159c1d22b998bb5e6b2a9f0",
+  "gsd": "1.40.0",
+  "context-mode-codex": "1.0.169",
+  "hyperframes": "0.8.36",
+  "ecc": "2.2.1",
+  "ponytail": "4.9.0",
+  "context-mode-claude": "1.0.107",
+  "superpowers": "6.3.0",
+  "skill-creator": "85cce0381e7860082641b59d961a2b8c368b8b79",
+  "frontend-design": "85cce0381e7860082641b59d961a2b8c368b8b79",
+  "chrome-devtools-mcp": "1.9.0",
+  "codex-cli": "0.154.0",
+  "claude-code": "2.1.270"
+}
