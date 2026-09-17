@@ -2530,7 +2530,7 @@
     "codex/writing-shape/SKILL.md": "4f7e55bca195bceb99e4cd8dc4e89dd5cc5bb40e6e7798acc69a8f84af770a38",
     "codex/zoom-out/SKILL.md": "ee6058cc5dc236f22638c1b211aaafe8ac37df1b2c3ebcae05999cd77c5defe9",
     "kit/.claude-plugin/marketplace.json": "877853e782ae7d193a1889db6379cd697f47a9a1ecd17e1d19974623fde0cfea",
-    "kit/agent-brain/.gitattributes": "db7f5e6f7795f9b29a91b439820fe4e8eed93e9f911d5c5ad296071f29f53f7a",
+    "kit/agent-brain/.gitattributes": "be579cb4ccfdc027521e278b72162492917f59fbf35e4f317966a02739179741",
     "kit/agent-brain/.github/workflows/check.yml": "6a06d172e49c7b3ecc9df0c5f00703f19efc64a278b741edc684c389daad0077",
     "kit/agent-brain/.gitignore": "015177a4096eb5a86067e6707998e8e497bd16eeda5f2875e931a554c8381815",
     "kit/agent-brain/automation/audit-prompt.md": "1618ab3d30f3de44b0527bd02994689a62ce6535d3049e85f710846f6d9284e4",
@@ -8009,7 +8009,7 @@
     "kit/runtime/context-mode-launcher.py": "3514f7535b650472baa9f5d66cf2b1c745c7cfc12f1d37ea878fb5e487357b15",
     "kit/runtime/hyperframes-runtime/package-lock.json": "e4886d65c695b9303ee77f5491dc8cb9dbf8a704100364720d22147262a34516",
     "kit/runtime/hyperframes-runtime/package.json": "3ce0c3c73a3f45aa34f08011442697ce9a5be36e888c676e0edf374bb3d8dd9c",
-    "kit/SOURCES.md": "4d9e5a36c7a58bc6c9df97db01edc9dcf7755fc7a1c2097ebdfcd255cc9f72ef",
+    "kit/SOURCES.md": "ce9cef4beb7892e499f9ebba1fbb4d34faaeb13e33e8eb4e9c090b7f9cfd769b",
     "kit/statusline.py": "4d46b6b12e269ddc71a65cd7c6f739ce70d3dd994c0b377130ec7f15ce18fecd",
     "kit/versions.json": "47738cc06da58e8cdf7045b8329591f4c68fffe5be397ea53b827da4d51941ca"
   }

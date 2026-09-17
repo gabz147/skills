@@ -9,3 +9,7 @@
 *.vbs text eol=crlf
 *.sh text eol=lf
 *.png binary
+
+# Private kit snapshots are checksummed as exact Git bytes on every platform.
+# Keep this final override when refreshing the public agent-brain snapshot.
+* -text -eol

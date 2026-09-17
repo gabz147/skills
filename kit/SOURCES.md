@@ -29,7 +29,8 @@ Intentional packaging changes:
   version `0.0.0-snapshot.85cce0381e78`.
 - Pin ECC's optional Chrome DevTools MCP package to 1.9.0 instead of `latest`.
 - Preserve packaged bytes through Git using a final `-text -eol` attribute override;
-  normalize shell/polyglot line endings and executable permissions when installing.
+  retain this override after refreshing nested upstream `.gitattributes` files.
+  Normalize shell/polyglot line endings and executable permissions when installing.
 - Extend the custom status line with GSD's temporary context-metrics bridge.
 - Canonicalize the vault test fixture root so Windows short names compare
   correctly with the controller's resolved paths.
