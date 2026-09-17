@@ -43,3 +43,8 @@ this kit. Some describe additional integrations that remain optional; their
 presence is not evidence that those integrations are connected.
 
 September 16 context update: refreshed the complete generic agent-brain snapshot to 7b847337a2b66328b04531d1dc2cd85d7bfa05cb and the two vault-skill copies. Installer defaults use name-only GSD/legacy-design listings and startup-off Ponytail with compact Codex guidance; existing explicit overrides are preserved. No upstream GSD/plugin definitions were edited for visibility.
+
+September 16 follow-up: the full-kit installer defaults Codex's native
+skills.include_instructions to false and adds portable on-demand discovery
+instructions. Explicit preferences win. Skill/plugin payloads and the standalone
+Brain template are unchanged; measured token results are documented in SETUP.md.

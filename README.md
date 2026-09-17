@@ -8,6 +8,7 @@ boot rules, shared vault workflow, hooks, status line, plugins and MCP runtimes.
 - **171 Claude skills and 233 Codex skills**, including the 54 previously missing plugin mirrors.
 - Pinned GSD, ECC, Ponytail, Context Mode and HyperFrames sources/runtimes.
 - One installer with preview, checked backups, recovery and isolated-profile tests.
+- Codex discovers skills on demand, avoiding a large catalog in every prompt.
 - Generic Brain template only. Actual Brain notes and credentials stay off GitHub.
 
 Start with [SETUP.md](SETUP.md) for prerequisites, application connections and acceptance checks.

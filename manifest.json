@@ -8009,7 +8009,7 @@
     "kit/runtime/context-mode-launcher.py": "3514f7535b650472baa9f5d66cf2b1c745c7cfc12f1d37ea878fb5e487357b15",
     "kit/runtime/hyperframes-runtime/package-lock.json": "e4886d65c695b9303ee77f5491dc8cb9dbf8a704100364720d22147262a34516",
     "kit/runtime/hyperframes-runtime/package.json": "3ce0c3c73a3f45aa34f08011442697ce9a5be36e888c676e0edf374bb3d8dd9c",
-    "kit/SOURCES.md": "ce9cef4beb7892e499f9ebba1fbb4d34faaeb13e33e8eb4e9c090b7f9cfd769b",
+    "kit/SOURCES.md": "e01adebbdc270f295584e1250f81af25db48a71cd0a45fa0612a4136861ce4ca",
     "kit/statusline.py": "4d46b6b12e269ddc71a65cd7c6f739ce70d3dd994c0b377130ec7f15ce18fecd",
     "kit/versions.json": "47738cc06da58e8cdf7045b8329591f4c68fffe5be397ea53b827da4d51941ca"
   }

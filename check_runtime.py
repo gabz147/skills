@@ -6,6 +6,7 @@ import queue
 import subprocess
 import tempfile
 import threading
+import tomllib
 
 import setup
 
@@ -82,6 +83,13 @@ def main(home):
     for name in setup.CLIENT_PLUGINS['codex']:
         if not any(p.get('id', p.get('pluginId')) == name + '@skills-kit' and p.get('installed') and p.get('enabled') for p in plugins):
             raise RuntimeError('Codex plugin is not installed/enabled: ' + name)
+    config = tomllib.loads((home / '.codex/config.toml').read_text(encoding='utf-8-sig'))
+    if config.get('skills', {}).get('include_instructions') is False:
+        prompt = setup.run(['codex', 'debug', 'prompt-input', 'test'], home, home, json_result=True)
+        text = '\n'.join(block.get('text', '') for message in prompt for block in message.get('content', []))
+        if '<skills_instructions>' in text or '## On-demand skills' not in text:
+            raise RuntimeError('Codex on-demand skill discovery is not reflected in the native prompt')
+        print('Codex native prompt: catalog omitted, on-demand discovery present (no model call)')
     with tempfile.TemporaryDirectory(prefix='kit runtime ') as tmp:
         cwd = Path(tmp)
         mcp([setup.sys.executable, str(runtime / 'context-mode-launcher.py')], home, cwd, 'codex-context')

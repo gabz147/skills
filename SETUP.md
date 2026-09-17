@@ -221,6 +221,24 @@ installed for explicit invocation. Existing explicit environment choices and
 an existing Compact coding defaults section are preserved. These are defaults,
 not edits to versioned plugin caches.
 
+Codex also defaults `skills.include_instructions` to `false`, omitting the
+automatic skill catalog from model input while retaining every installed skill
+and enabled plugin. A portable On-demand skills boot section tells Codex where
+to discover and fully read relevant definitions. Existing explicit `true` or
+`false` settings and custom discovery instructions are preserved. Set it to
+`true` to restore the automatic catalog. Restart Codex and open a fresh thread
+after changing this setting; old conversation context remains loaded.
+
+Verified with Codex CLI 0.154.0 and its native configuration schema. In a
+same-model, same-prompt before/after test, total input fell from 23,667 to 16,580
+tokens (30%); cached input stayed 12,544, so uncached input fell from 11,123 to
+4,036 (64%). Both replies used 5 output tokens and no tools. These are measured
+request counts, not guaranteed savings for every installation or billing rates.
+The separate fresh-window user check reported 2.47k, confirmed in its session
+log as 15,394 total input, 12,928 cached and 2,466 uncached. The original window
+used 22,465 total and 9,537 uncached with the same 12,928 cached. Skill file
+hashes were unchanged; no private transcripts are packaged here.
+
 Re-measure with fresh /context and /skill-doctor commands. A saturated listing
 can spend freed space on previously truncated descriptions, so name-only changes
 are not a guaranteed reduction in the total Skills row. Deferred MCP schemas

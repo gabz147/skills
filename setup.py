@@ -30,6 +30,10 @@ COMPACT_CODING_DEFAULTS = """## Compact coding defaults
 
 For coding, understand the task and trace affected callers first. Prefer reuse, stdlib, native features, then installed dependencies; write the smallest correct change. Avoid speculative features, abstractions and dependencies. Fix root causes. Preserve required validation, security, accessibility, data-loss protection and hardware calibration. Verify non-trivial logic with an existing suitable check or one minimal runnable check. Keep explanations concise unless detail is requested. Load full Ponytail skills only when I explicitly request them.
 """
+ON_DEMAND_SKILLS = """## On-demand skills
+
+Skills remain available on demand. For specialized work or an explicitly named skill, discover relevant `SKILL.md` paths under `{home}/.codex/skills`, `{home}/.agents/skills`, `{home}/.codex/plugins/cache`, and `{home}/.local/share/skills-kit/marketplace/plugins` using `rg --files --hidden -g SKILL.md` and filter filenames first. If filenames are inconclusive, search frontmatter descriptions in likely folders. Read the selected skill fully before using it, resolve references relative to it, and announce its use. Prefer the installed/current plugin version; do not scan or load the whole library for greetings or self-contained questions. Full Ponytail skills still require explicit request.
+"""
 NATIVE_FILES = ['.claude/settings.json', '.claude.json', '.codex/config.toml',
                 '.claude/plugins/known_marketplaces.json', '.claude/plugins/installed_plugins.json',
                 '.claude/hooks/context-mode-cache-heal.mjs']
@@ -192,6 +196,7 @@ def plan(home, vault, client='all', skills_only=False, replace=False, blender=No
     config = tomllib.loads(config_path.read_text('utf-8-sig')) if config_path.exists() else {}
     config.setdefault('model', 'gpt-6-astra')
     config.setdefault('model_reasoning_effort', 'high')
+    config.setdefault('skills', {}).setdefault('include_instructions', False)
     for selector, entry in config.get('plugins', {}).items():
         if selector.split('@')[0] in CLIENT_PLUGINS['codex'] and not selector.endswith('@skills-kit'):
             entry['enabled'] = False
@@ -202,7 +207,10 @@ def plan(home, vault, client='all', skills_only=False, replace=False, blender=No
     boot_path = home / '.codex/AGENTS.md'
     boot_text = files.get(boot_path, boot_path.read_bytes() if boot_path.exists() else b'').decode('utf-8-sig')
     if '## Compact coding defaults' not in boot_text:
-        files[boot_path] = (boot_text.rstrip() + '\n\n' + COMPACT_CODING_DEFAULTS).encode('utf-8')
+        boot_text = boot_text.rstrip() + '\n\n' + COMPACT_CODING_DEFAULTS
+    if not config['skills']['include_instructions'] and '## On-demand skills' not in boot_text:
+        boot_text = boot_text.rstrip() + '\n\n' + ON_DEMAND_SKILLS.format(home=home.as_posix())
+    files[boot_path] = boot_text.encode('utf-8')
     mcp = config.setdefault('mcp_servers', {})
     mcp.setdefault('openaiDeveloperDocs', {'url': 'https://developers.openai.com/mcp'})
     mcp['context-mode'] = {'command': sys.executable, 'args': [str(runtime / 'context-mode-launcher.py')], 'enabled_tools': TOOLS}

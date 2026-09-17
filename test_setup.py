@@ -46,7 +46,10 @@ class SetupIntegration(unittest.TestCase):
             self.assertEqual(config['approval_policy'], 'on-request')
             self.assertEqual(config['projects']['/existing project']['trust_level'], 'untrusted')
             self.assertEqual(config['shell_environment_policy']['set']['PONYTAIL_DEFAULT_MODE'], 'off')
+            self.assertFalse(config['skills']['include_instructions'])
             self.assertIn(setup.COMPACT_CODING_DEFAULTS, (home / '.codex/AGENTS.md').read_text(encoding='utf-8'))
+            self.assertIn(setup.ON_DEMAND_SKILLS.format(home=home.as_posix()),
+                          (home / '.codex/AGENTS.md').read_text(encoding='utf-8'))
             self.assertEqual(config['mcp_servers']['context-mode']['enabled_tools'], setup.TOOLS)
             self.assertNotIn('hooks', config)  # Never carry over native hook trust hashes.
             self.assertFalse(setup.plan(home, vault))
@@ -94,12 +97,16 @@ class SetupIntegration(unittest.TestCase):
             settings.write_text(json.dumps({'skillOverrides': {'gsd-plan-phase': 'on', 'custom': 'off'}}))
             config = home / '.codex/config.toml'
             config.parent.mkdir()
-            config.write_text('[shell_environment_policy.set]\nPONYTAIL_DEFAULT_MODE = "full"\n')
+            config.write_text('[shell_environment_policy.set]\nPONYTAIL_DEFAULT_MODE = "full"\n'
+                              '[skills]\ninclude_instructions = true\nmax_context_tokens = 1200\n')
             files = setup.plan(home, vault, replace=True)
             result = json.loads(files[settings])
             self.assertEqual(result['skillOverrides']['gsd-plan-phase'], 'on')
             self.assertEqual(result['skillOverrides']['custom'], 'off')
             self.assertEqual(tomllib.loads(files.get(config, config.read_bytes()).decode())['shell_environment_policy']['set']['PONYTAIL_DEFAULT_MODE'], 'full')
+            self.assertEqual(tomllib.loads(files[config].decode())['skills'],
+                             {'include_instructions': True, 'max_context_tokens': 1200})
+            self.assertNotIn('## On-demand skills', files[home / '.codex/AGENTS.md'].decode())
             # Exercise the packaged resolver, not a duplicate of its mode logic.
             script = setup.KIT / 'plugins/ponytail/hooks/ponytail-config.js'
             for mode in ('off', 'full'):
