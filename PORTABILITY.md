@@ -76,7 +76,7 @@ These are recipe indicators, not claims that an entire skill is Windows-only.
 | [claude/media-use/SKILL.md](<claude/media-use/SKILL.md>) | Windows path/executable example |
 | [claude/mercura/SKILL.md](<claude/mercura/SKILL.md>) | Windows path/executable example |
 | [claude/minimalist-ui/SKILL.md](<claude/minimalist-ui/SKILL.md>) | Windows path/executable example |
-| [claude/obsidian-vault/SKILL.md](<claude/obsidian-vault/SKILL.md>) | PowerShell/Windows command; Windows path/executable example |
+| [claude/obsidian-vault/SKILL.md](<claude/obsidian-vault/SKILL.md>) | PowerShell/Windows command |
 | [claude/redesign-existing-projects/SKILL.md](<claude/redesign-existing-projects/SKILL.md>) | Windows path/executable example |
 | [claude/security-and-hardening/SKILL.md](<claude/security-and-hardening/SKILL.md>) | Windows path/executable example |
 | [claude/setup-matt-pocock-skills/issue-tracker-gitlab.md](<claude/setup-matt-pocock-skills/issue-tracker-gitlab.md>) | Windows path/executable example |
@@ -230,7 +230,7 @@ These are recipe indicators, not claims that an entire skill is Windows-only.
 | [codex/mercura/SKILL.md](<codex/mercura/SKILL.md>) | Windows path/executable example |
 | [codex/minimalist-ui/SKILL.md](<codex/minimalist-ui/SKILL.md>) | Windows path/executable example |
 | [codex/multiview-fit-loop/SKILL.md](<codex/multiview-fit-loop/SKILL.md>) | PowerShell/Windows command; Windows path/executable example |
-| [codex/obsidian-vault/SKILL.md](<codex/obsidian-vault/SKILL.md>) | PowerShell/Windows command; Windows path/executable example |
+| [codex/obsidian-vault/SKILL.md](<codex/obsidian-vault/SKILL.md>) | PowerShell/Windows command |
 | [codex/orthographic-registration/SKILL.md](<codex/orthographic-registration/SKILL.md>) | PowerShell/Windows command; Windows path/executable example |
 | [codex/personal-gym-goal-coach/SKILL.md](<codex/personal-gym-goal-coach/SKILL.md>) | Windows path/executable example |
 | [codex/redesign-existing-projects/SKILL.md](<codex/redesign-existing-projects/SKILL.md>) | Windows path/executable example |

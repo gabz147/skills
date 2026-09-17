@@ -201,3 +201,28 @@ preview before applying with `--replace`. `manifest.json` enumerates and hashes
 every packaged file. Do not regenerate it to hide unexpected drift. Maintainers
 can use `python refresh_manifest.py` after reviewing intentional source changes.
 Local plugin snapshots retain upstream licenses; this is a private setup backup.
+
+## Context defaults
+
+The kit includes the current task-based Brain workflow, compact daily navigation
+and verified checkpoint receipts, plus optional native Home/on-demand actions.
+Existing vault notes remain preserved; see the bundled Brain context-loading
+guide for adapting optional note templates during an upgrade.
+
+GSD skills and the legacy design-taste-frontend-v1 skill default to name-only
+Claude listings. Commands remain callable by Claude and by /name; framework
+agents, hooks and workflow paths remain intact. Existing skillOverrides entries
+win. No upstream skill descriptions are patched. Use /skills or settings.json
+skillOverrides to restore full descriptions for a workflow you want advertised.
+
+Codex defaults PONYTAIL_DEFAULT_MODE to off in shell_environment_policy.set,
+with a compact coding rule outside the shared vault block. Full Ponytail remains
+installed for explicit invocation. Existing explicit environment choices and
+an existing Compact coding defaults section are preserved. These are defaults,
+not edits to versioned plugin caches.
+
+Re-measure with fresh /context and /skill-doctor commands. A saturated listing
+can spend freed space on previously truncated descriptions, so name-only changes
+are not a guaranteed reduction in the total Skills row. Deferred MCP schemas
+are not all charged up front. Roblox connections, cross-project creative skills,
+GSD scope and plugin versions are unchanged by this context update.

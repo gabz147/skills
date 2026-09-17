@@ -26,6 +26,10 @@ CLIENT_PLUGINS = {'claude': ['skill-creator', 'superpowers', 'frontend-design', 
                   'codex': ['ecc', 'ponytail']}
 TOOLS = ['ctx_execute', 'ctx_execute_file', 'ctx_index', 'ctx_search',
          'ctx_fetch_and_index', 'ctx_batch_execute', 'ctx_stats']
+COMPACT_CODING_DEFAULTS = """## Compact coding defaults
+
+For coding, understand the task and trace affected callers first. Prefer reuse, stdlib, native features, then installed dependencies; write the smallest correct change. Avoid speculative features, abstractions and dependencies. Fix root causes. Preserve required validation, security, accessibility, data-loss protection and hardware calibration. Verify non-trivial logic with an existing suitable check or one minimal runnable check. Keep explanations concise unless detail is requested. Load full Ponytail skills only when I explicitly request them.
+"""
 NATIVE_FILES = ['.claude/settings.json', '.claude.json', '.codex/config.toml',
                 '.claude/plugins/known_marketplaces.json', '.claude/plugins/installed_plugins.json',
                 '.claude/hooks/context-mode-cache-heal.mjs']
@@ -144,6 +148,12 @@ def plan(home, vault, client='all', skills_only=False, replace=False, blender=No
     settings = json.loads(files.get(settings_path, encoded(read_json(settings_path))))
     settings.setdefault('model', 'claude-opus-5')
     settings.setdefault('effortLevel', 'high')
+    # Keep workflows callable; remove descriptions rather than disabling model calls.
+    # Existing visibility choices always win, including deliberate "on" entries.
+    visibility = settings.setdefault('skillOverrides', {})
+    for skill in (ROOT / 'claude').glob('gsd-*/SKILL.md'):
+        visibility.setdefault(skill.parent.name, 'name-only')
+    visibility.setdefault('design-taste-frontend-v1', 'name-only')
     for selector in settings.get('enabledPlugins', {}):
         if selector.split('@')[0] in CLIENT_PLUGINS['claude'] and not selector.endswith('@skills-kit'):
             settings['enabledPlugins'][selector] = False
@@ -188,6 +198,11 @@ def plan(home, vault, client='all', skills_only=False, replace=False, blender=No
     config.setdefault('tui', {}).setdefault('status_line', ['model-with-reasoning', 'fast-mode', 'current-dir',
                                                          'git-branch', 'context-used', 'five-hour-limit', 'weekly-limit'])
     config.setdefault('shell_environment_policy', {}).setdefault('set', {}).update(settings['env'])
+    config['shell_environment_policy']['set'].setdefault('PONYTAIL_DEFAULT_MODE', 'off')
+    boot_path = home / '.codex/AGENTS.md'
+    boot_text = files.get(boot_path, boot_path.read_bytes() if boot_path.exists() else b'').decode('utf-8-sig')
+    if '## Compact coding defaults' not in boot_text:
+        files[boot_path] = (boot_text.rstrip() + '\n\n' + COMPACT_CODING_DEFAULTS).encode('utf-8')
     mcp = config.setdefault('mcp_servers', {})
     mcp.setdefault('openaiDeveloperDocs', {'url': 'https://developers.openai.com/mcp'})
     mcp['context-mode'] = {'command': sys.executable, 'args': [str(runtime / 'context-mode-launcher.py')], 'enabled_tools': TOOLS}

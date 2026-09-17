@@ -39,10 +39,14 @@ class SetupIntegration(unittest.TestCase):
             settings = setup.read_json(settings_path)
             self.assertEqual(settings['permissions'], original['permissions'])
             self.assertEqual(settings['model'], original['model'])
+            self.assertEqual(settings['skillOverrides']['gsd-plan-phase'], 'name-only')
+            self.assertEqual(settings['skillOverrides']['design-taste-frontend-v1'], 'name-only')
             self.assertIn(original['hooks']['Stop'][0], settings['hooks']['Stop'])
             config = tomllib.loads(config_path.read_text())
             self.assertEqual(config['approval_policy'], 'on-request')
             self.assertEqual(config['projects']['/existing project']['trust_level'], 'untrusted')
+            self.assertEqual(config['shell_environment_policy']['set']['PONYTAIL_DEFAULT_MODE'], 'off')
+            self.assertIn(setup.COMPACT_CODING_DEFAULTS, (home / '.codex/AGENTS.md').read_text(encoding='utf-8'))
             self.assertEqual(config['mcp_servers']['context-mode']['enabled_tools'], setup.TOOLS)
             self.assertNotIn('hooks', config)  # Never carry over native hook trust hashes.
             self.assertFalse(setup.plan(home, vault))
@@ -80,6 +84,29 @@ class SetupIntegration(unittest.TestCase):
             # Recovery refuses to overwrite local work modified since installation.
             with self.assertRaisesRegex(ValueError, 'Changed since installation'):
                 setup.restore(backup / 'manifest.json', home, vault)
+
+    def test_existing_context_choices_and_plugin_mode_are_preserved(self):
+        with tempfile.TemporaryDirectory(prefix='context defaults ') as tmp:
+            home = Path(tmp) / 'home'
+            vault = Path(tmp) / 'vault'
+            settings = home / '.claude/settings.json'
+            settings.parent.mkdir(parents=True)
+            settings.write_text(json.dumps({'skillOverrides': {'gsd-plan-phase': 'on', 'custom': 'off'}}))
+            config = home / '.codex/config.toml'
+            config.parent.mkdir()
+            config.write_text('[shell_environment_policy.set]\nPONYTAIL_DEFAULT_MODE = "full"\n')
+            files = setup.plan(home, vault, replace=True)
+            result = json.loads(files[settings])
+            self.assertEqual(result['skillOverrides']['gsd-plan-phase'], 'on')
+            self.assertEqual(result['skillOverrides']['custom'], 'off')
+            self.assertEqual(tomllib.loads(files.get(config, config.read_bytes()).decode())['shell_environment_policy']['set']['PONYTAIL_DEFAULT_MODE'], 'full')
+            # Exercise the packaged resolver, not a duplicate of its mode logic.
+            script = setup.KIT / 'plugins/ponytail/hooks/ponytail-config.js'
+            for mode in ('off', 'full'):
+                proc = subprocess.run(['node', '-e', 'process.stdout.write(require(process.argv[1]).getDefaultMode())', str(script)],
+                                      env=dict(os.environ, PONYTAIL_DEFAULT_MODE=mode), capture_output=True, text=True)
+                self.assertEqual(proc.returncode, 0, proc.stderr)
+                self.assertEqual(proc.stdout, mode)
 
     def test_boundaries_and_invalid_arguments(self):
         with tempfile.TemporaryDirectory() as tmp:

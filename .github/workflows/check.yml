@@ -24,6 +24,8 @@ jobs:
         run: python -m pip install PyMuPDF==1.28.2
       - name: Run vault tests
         run: python -m unittest discover -s kit/agent-brain/automation/tests -v
+      - name: Native link checker fixtures
+        run: node kit/agent-brain/automation/tests/test_vault_links.mjs
       - name: Install native CLIs for isolated runtime acceptance
         run: npm install --global @openai/codex@0.154.0 @anthropic-ai/claude-code@2.1.270
       - name: Full setup and runtime smoke tests in a disposable home

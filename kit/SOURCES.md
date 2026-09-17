@@ -5,7 +5,7 @@ in the root `manifest.json`; versions/revisions are in `kit/versions.json`.
 
 | Snapshot | Original source |
 |---|---|
-| `agent-brain` | [gabz147/agent-brain](https://github.com/gabz147/agent-brain), ae54ef9; public generic template, never the private Brain vault |
+| `agent-brain` | [gabz147/agent-brain](https://github.com/gabz147/agent-brain), 7b84733; public generic template, never the private Brain vault |
 | `statusline.py` | [gabz147/cli-statusline](https://github.com/gabz147/cli-statusline), 07b8004 |
 | `gsd` | Installed get-shit-done-cc 1.40.0 workflows, helpers, agents and hooks |
 | `plugins/ecc` | [affaan-m/ECC](https://github.com/affaan-m/ECC), installed 2.2.1 native Codex package |
@@ -40,3 +40,5 @@ The 54 Codex plugin mirrors are copied from the existing installed mirrors. They
 are not claimed to regenerate automatically from installing the six plugins in
 this kit. Some describe additional integrations that remain optional; their
 presence is not evidence that those integrations are connected.
+
+September 16 context update: refreshed the complete generic agent-brain snapshot to 7b847337a2b66328b04531d1dc2cd85d7bfa05cb and the two vault-skill copies. Installer defaults use name-only GSD/legacy-design listings and startup-off Ponytail with compact Codex guidance; existing explicit overrides are preserved. No upstream GSD/plugin definitions were edited for visibility.
