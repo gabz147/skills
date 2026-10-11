@@ -1,0 +1,38 @@
+{
+  "name": "skills-kit",
+  "owner": {
+    "name": "gabz147"
+  },
+  "plugins": [
+    {
+      "name": "ecc",
+      "source": "./plugins/ecc",
+      "description": "Pinned private setup snapshot"
+    },
+    {
+      "name": "ponytail",
+      "source": "./plugins/ponytail",
+      "description": "Pinned private setup snapshot"
+    },
+    {
+      "name": "context-mode",
+      "source": "./plugins/context-mode",
+      "description": "Pinned private setup snapshot"
+    },
+    {
+      "name": "superpowers",
+      "source": "./plugins/superpowers",
+      "description": "Pinned private setup snapshot"
+    },
+    {
+      "name": "skill-creator",
+      "source": "./plugins/skill-creator",
+      "description": "Pinned private setup snapshot"
+    },
+    {
+      "name": "frontend-design",
+      "source": "./plugins/frontend-design",
+      "description": "Pinned private setup snapshot"
+    }
+  ]
+}

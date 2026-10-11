@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "model_version": "unverified",
+  "assets": [
+    {
+      "file": "cover.png",
+      "prompt": "Use case: stylized-concept. Asset type: wide GitHub README cover graphic, landscape 3:1. Create a polished editorial vector-style graphic for a private developer project titled Skills and CLI setup kit. Dark graphite background, clean white typography, warm amber and cool mint geometric accents. Exact main text: \"SKILLS / CLI KIT\". Exact small subtitle: \"macOS + Windows\". Compose modular rectangular cards with simple terminal prompt glyphs, code brackets, linked document sheets and plug shapes into a precise architectural grid. Strong flat graphic design, crisp edges, generous breathing room, understated technical aesthetic. A few thin connecting lines suggest reusable tools shared between two terminals. No photographs, no people, no robot, no brain illustration, no 3D mockup, no gradients, no external logos, no watermark, no extra text. Wide header with title clearly readable at GitHub README width."
+    },
+    {
+      "file": "setup-flow.png",
+      "prompt": "Use case: infographic-diagram. Asset type: landscape GitHub setup guide graphic, 3:2. Design a clean flat vector-style infographic with dark graphite background, warm amber and cool mint accents, crisp white sans serif typography. Heading exact: \"ONE KIT. TWO PLATFORMS.\" Below it four large cards in one left-to-right row joined by thin directional arrows. Card 1 exact label \"CLONE\" with repository branching glyph. Card 2 exact label \"CHECK\" with terminal and checkmark glyph. Card 3 exact label \"INSTALL\" with download/package glyph. Card 4 exact label \"CONNECT\" with two terminal windows glyph. Small footer exact: \"macOS + Windows\". Spacious grid, sophisticated editorial tech graphics, diagram fills width yet every label clear. No other text, no commands, no brand logos, no photos, no 3D, no robots, no decorative clutter. This is a conceptual navigation graphic; not an application screenshot."
+    },
+    {
+      "file": "skills-map.png",
+      "prompt": "Use case: infographic-diagram. Asset type: landscape GitHub README skills capability graphic, 3:2. Design a beautiful flat vector-style graphic, dark graphite background, crisp white typography, alternating warm amber and cool mint highlights. Main heading exact: \"YOUR TOOLKIT\". Six equal modular tiles arranged a spacious three-column by two-row grid. Each tile has a refined large simple pictogram and one label only. Tile labels exact: \"CODE\", \"DESIGN\", \"AUTOMATE\", \"RESEARCH\", \"CREATE\", \"REMEMBER\". Pictograms respectively code brackets, precise layout grid, connected workflow nodes, magnifier over document, simple geometric 3D wireframe cube rendered as flat lines, interlinked markdown document pages. Fine pale gray grid lines and generous margins. Premium developer documentation visual identity, clear at smaller sizes, clean visual hierarchy. No additional text, no capability counts, no photographs, no gradients, no 3D renders, no robots, no brain imagery, no brand logos, no watermark."
+    }
+  ]
+}

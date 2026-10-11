@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ARC Raiders Montage Configuration",
+  "type": "object",
+  "required": ["footage_path"],
+  "additionalProperties": false,
+  "properties": {
+    "footage_path": {"type": "string", "description": "Folder containing source gameplay recordings."},
+    "music_path": {"type": ["string", "null"], "default": null},
+    "target_duration": {"type": "string", "default": "auto", "description": "30s, 2m, 45-75s, full_song, best_available, or auto."},
+    "output_path": {"type": ["string", "null"], "default": null},
+    "output_name": {"type": ["string", "null"], "default": "arc_raiders_montage"},
+    "montage_style": {"type": "string", "default": "balanced", "description": "aggressive, balanced, cinematic, or a custom style description."},
+    "highlight_rules": {"type": "array", "items": {"type": "string"}, "default": ["raider knock flare", "shield pop", "shield break"]},
+    "event_priority": {"type": "array", "items": {"type": "string", "enum": ["knock", "knock_flare", "raider_knock_flare", "shield_break", "shield_hit", "impact", "impact_candidate"]}, "default": ["raider_knock_flare", "shield_break", "shield_hit", "impact_candidate"]},
+    "resolution": {"type": "string", "default": "1920x1080"},
+    "frame_rate": {"type": "number", "default": 60},
+    "game_audio_level": {"type": "number", "minimum": 0, "default": 0.35},
+    "music_level": {"type": "number", "minimum": 0, "default": 1.0},
+    "render_enabled": {"type": "boolean", "default": false},
+    "review_required": {"type": ["boolean", "null"], "default": null, "description": "Null chooses review-first for balanced/uncertain detection."},
+    "force_rescan": {"type": "boolean", "default": false},
+    "analysis_fps": {"type": "number", "minimum": 0.1, "default": 3.0, "description": "Fallback whole-frame scan rate."},
+    "hud_analysis_fps": {"type": "number", "minimum": 0.1, "default": 8.0, "description": "Bottom-right HUD scan rate for weapon and ammo-glyph changes."},
+    "fine_analysis_fps": {"type": "number", "minimum": 1, "default": 30.0, "description": "Candidate-window scan rate for ordered impact, shield, spark, and flare evidence."},
+    "detector_profile": {"type": "string", "enum": ["fast", "balanced", "accurate"], "default": "accurate"},
+    "preferred_weapons": {"type": "array", "items": {"type": "string"}, "default": ["APHELION", "EQUALIZER"]},
+    "preferred_weapon_mode": {"type": "string", "enum": ["boost", "only", "off"], "default": "boost"},
+    "minimum_event_tier": {"type": "string", "enum": ["S", "A", "B", "C"], "default": "B"},
+    "hud_roi": {"$ref": "#/$defs/normalizedRoi", "default": [0.84, 0.72, 1.0, 1.0]},
+    "player_status_roi": {"$ref": "#/$defs/normalizedRoi", "default": [0.0, 0.84, 0.19, 1.0]},
+    "reticle_roi": {"$ref": "#/$defs/normalizedRoi", "default": [0.38, 0.30, 0.62, 0.70]},
+    "action_roi": {"$ref": "#/$defs/normalizedRoi", "default": [0.24, 0.18, 0.76, 0.92]},
+    "ammo_change_threshold": {"type": "number", "minimum": 0, "maximum": 1, "default": 0.025},
+    "weapon_match_threshold": {"type": "number", "minimum": 0, "maximum": 1, "default": 0.42},
+    "player_damage_penalty": {"type": "number", "minimum": 0, "maximum": 1, "default": 0.18},
+    "cache_dir": {"type": ["string", "null"], "default": null},
+    "exclude_globs": {"type": "array", "items": {"type": "string"}, "default": []},
+    "postroll_seconds": {"type": "number", "minimum": 0, "default": 2.0},
+    "approvals_path": {"type": ["string", "null"], "default": null, "description": "Optional edited review approvals JSON."}
+  },
+  "$defs": {
+    "normalizedRoi": {
+      "type": "array",
+      "prefixItems": [
+        {"type": "number", "minimum": 0, "maximum": 1},
+        {"type": "number", "minimum": 0, "maximum": 1},
+        {"type": "number", "minimum": 0, "maximum": 1},
+        {"type": "number", "minimum": 0, "maximum": 1}
+      ],
+      "minItems": 4,
+      "maxItems": 4
+    }
+  }
+}
