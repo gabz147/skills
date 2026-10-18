@@ -80,7 +80,6 @@ These are recipe indicators, not claims that an entire skill is Windows-only.
 | [claude/skill-scout/SKILL.md](<claude/skill-scout/SKILL.md>) | PowerShell/Windows command; Windows path/executable example |
 | [claude/source-driven-development/SKILL.md](<claude/source-driven-development/SKILL.md>) | Windows path/executable example |
 | [claude/stitch-design-taste/SKILL.md](<claude/stitch-design-taste/SKILL.md>) | Windows path/executable example |
-| [claude/story-engine/SOURCES.md](<claude/story-engine/SOURCES.md>) | Windows path/executable example |
 | [claude/teach/RESOURCES-FORMAT.md](<claude/teach/RESOURCES-FORMAT.md>) | Windows path/executable example |
 | [claude/threejs-3d-generator/references/api-notes.md](<claude/threejs-3d-generator/references/api-notes.md>) | Windows path/executable example |
 | [claude/threejs-3d-generator/references/threejs-integration.md](<claude/threejs-3d-generator/references/threejs-integration.md>) | Windows path/executable example |
@@ -230,7 +229,6 @@ These are recipe indicators, not claims that an entire skill is Windows-only.
 | [codex/setup-matt-pocock-skills/SKILL.md](<codex/setup-matt-pocock-skills/SKILL.md>) | Windows path/executable example |
 | [codex/source-driven-development/SKILL.md](<codex/source-driven-development/SKILL.md>) | Windows path/executable example |
 | [codex/stitch-design-taste/SKILL.md](<codex/stitch-design-taste/SKILL.md>) | Windows path/executable example |
-| [codex/story-engine/SOURCES.md](<codex/story-engine/SOURCES.md>) | Windows path/executable example |
 | [codex/teach/RESOURCES-FORMAT.md](<codex/teach/RESOURCES-FORMAT.md>) | Windows path/executable example |
 | [codex/threejs-3d-generator/references/api-notes.md](<codex/threejs-3d-generator/references/api-notes.md>) | Windows path/executable example |
 | [codex/threejs-3d-generator/references/threejs-integration.md](<codex/threejs-3d-generator/references/threejs-integration.md>) | Windows path/executable example |

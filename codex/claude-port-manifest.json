@@ -1033,14 +1033,6 @@
       "description": "[Ported from Claude personal skill] Semantic Design System Skill for Google Stitch. Generates agent-friendly DESIGN.md files that enforce premium, anti-generic UI standards \u2014 strict typography, calibrated color, asymmetric layouts, perpetual micro-motion, and hardware-accelerated performance."
     },
     {
-      "name": "story-engine",
-      "source_name": "story-engine",
-      "source_kind": "personal skill",
-      "source": "C:\\Users\\USER\\.claude\\skills\\story-engine",
-      "destination": "C:\\Users\\USER\\.codex\\skills\\story-engine",
-      "description": "[Ported from Claude personal skill] Write Wattpad-style serialized fiction \u2014 addictive chapters, strong hooks, cliffhangers, and emotional character voice. Use when the user wants to write or plan a story, novel, fanfic, romance, or serialized web fiction; outline chapters; develop characters; draft or revise fiction prose; or asks for \"Wattpad-style\" writing."
-    },
-    {
       "name": "tdd",
       "source_name": "tdd",
       "source_kind": "personal skill",
